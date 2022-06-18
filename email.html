@@ -1,0 +1,781 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="email.png">
+    <title>ALL-EMAIL</title>
+
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Varela Round', sans-serif;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+#myUL {
+    width:50%;
+    position:relative;
+}
+
+#myUL li {
+    list-style: none;
+    border: 2px solid rgb(196, 190, 190);
+    margin-bottom: 17px;
+    height: 20px;
+    border-radius: 7px;
+    background-color: darkgray;
+    box-shadow: 4px 4px 1px 2px rgb(0 0 0 / 15%), 13px 13px 5px -13px rgb(255 255 255 / 70%);
+    padding-top: 38px;
+    transition: transform .2s;
+}
+
+#myUL li:hover {
+    transform: scale(1.15);
+}
+
+#myUL li a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+}
+
+.hero {
+    width: 55%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30%;
+}
+
+#searchBox {
+    border-radius: 76px;
+    padding: 2px;
+    background: rgb(231, 231, 231);
+    display: flex;
+    align-items: center;
+    box-shadow: 6px 6px 6px -1px rgb(0 0 0 / 15%), 13px 13px 5px -13px rgb(255 255 255 / 70%);
+    margin-top: 22px;
+    margin-left: 20%;
+
+}
+
+
+/* #logo{
+    width: 48px;
+    cursor: pointer;
+} */
+
+.microphone {
+    width: 48px;
+}
+
+input {
+    font-size: 20px;
+    padding: 2px 23px 2px;
+    width: 500px;
+    border: 0;
+    background: transparent;
+    outline: none;
+}
+    </style>
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shoelace-css/1.0.0-beta16/shoelace.css">
+   -->
+    <style>
+       /* @media screen and (max-width: 700px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .sidebar a {
+                float: left;
+            }
+            div.content {
+                margin-left: 0;
+            }
+        }
+        
+        @media screen and (max-width: 400px) {
+            .sidebar a {
+                text-align: center;
+                float: none;
+            }
+        }
+        
+        div.content {
+            margin-left: 200px;
+            padding: 1px 16px;
+            height: 1000px;
+        }*/
+    </style>
+    <style>
+        body {
+    background-image: url("gradient 2.jpg");
+}
+
+h1 {
+    padding-left: 0px 0px 0px 0px;
+    font-family: unset;
+}
+
+.allemail {
+    display: flex;
+    margin: 0px 0px 0px -79px;
+}
+
+#logo_img {
+    margin: 4px 10px 0px 800px;
+}
+
+.box {
+    margin-top: 40px;
+    margin-left: 30%;
+    border-radius: 4%;
+    padding: 0.5% 0 100px 0;
+    overflow: auto;
+    height: 50%;
+ 
+}
+
+.g {
+    text-align: center;
+    height: 20%;
+    width: 100%;
+    border: 5px solid rgb(0, 183, 255);
+    font-size: x-large;
+}
+
+.o {
+    margin-top: 5%;
+    text-align: center;
+    height: 20%;
+    width: 100%;
+    border: 5px solid rgb(0, 183, 255);
+    font-size: x-large;
+}
+
+.y {
+    margin-top: 5%;
+    text-align: center;
+    height: 20%;
+    width: 100%;
+    border: 5px solid rgb(0, 183, 255);
+    font-size: x-large;
+}
+
+.ya {
+    margin-top: 5%;
+    text-align: center;
+    height: 40px;
+    width: 100%;
+    border: 5px solid rgb(0, 183, 255);
+    font-size: x-large;
+}
+
+body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+    margin-top: 0%;
+    padding: 0;
+    width: 22%;
+    background-color: #2b96d8;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+sidebar > meet{
+    background-color:#04aa6d;
+}
+
+.sidebar a {
+    display: block;
+    color: whitesmoke;
+    padding-left: 10%;
+    padding-bottom:30%;
+    text-decoration: none;
+    font-size: larger;
+    margin:10%;
+}
+
+.sidebar a:hover:not(.active) {
+    background-color: #04aa6d;
+    /* border:1px solid transparent; */
+    color: white;
+    border-radius: 19px;
+}
+
+div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+}
+/*
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .sidebar a {
+        float: left;
+    }
+    div.content {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+}*/
+
+#Loudspeaker {
+    margin-top: 15px;
+    margin-left: 343px;
+}
+    </style>
+</head>
+
+<body onload="load()">
+
+    <script>
+        function myFunction() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("note-textarea");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+    <div class="sidebar">
+        <a href="https://meet.google.com/" class="meet">Google-Meet</a>
+        <a href="https://www.microsoft.com/en-in/microsoft-teams/log-in">MS-Teams</a>
+        <a href="https://zoom.us/signin">Zoom</a>
+
+        <a href="https://web.whatsapp.com/">Whatsapp</a>
+    </div>
+
+    <div class="allemail">
+        <img src="email.png" alt="logo" height="60px" id="logo_img">
+        <h1 style="color:rgb(28, 155, 224);font-size:4vw;">
+            ALL-EMAIL</h1>
+        <img src="loud.png" height="40px" alt="loud" onclick="GetSelectedText ()" id="Loudspeaker">
+
+    </div>
+    <!-- Search box Code -->
+
+    <div class="hero">
+        <!-- <div class="hero" -->
+        <div id="searchBox">
+            <!-- <img src="email.png" alt= "microphone" id="logo"> -->
+            <input type="text" onkeyup="myFunction()" placeholder="search here " rows="1" id="note-textarea">
+            <img src="mic.png" alt="mic" class="microphone" id="start-record-btn">
+
+        </div>
+
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+    
+
+
+
+try {
+var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+var recognition = new SpeechRecognition();
+} catch (e) {
+console.error(e);
+$('.no-browser-support').show();
+$('.app').hide();
+}
+
+
+
+
+
+var noteTextarea = $('#note-textarea');
+var instructions = $('#recording-instructions');
+var notesList = $('ul#notes');
+
+var noteContent = '';
+
+// Get all notes from previous sessions and display them.
+
+var notes = getAllNotes();
+renderNotes(notes);
+
+
+
+/*-----------------------------
+  Voice Recognition
+------------------------------*/
+
+// If false, the recording will stop after a few seconds of silence.
+// When true, the silence period is longer (about 15 seconds),
+// allowing us to keep recording even when the user pauses.
+recognition.continuous = true;
+
+// This block is called every time the Speech APi captures a line.
+recognition.onresult = function(event) {
+
+// event is a SpeechRecognitionEvent object.
+// It holds all the lines we have captured so far.
+// We only need the current one.
+var current = event.resultIndex;
+
+// Get a transcript of what was said.
+var transcript = event.results[current][0].transcript;
+
+
+
+// Add the current transcript to the contents of our Note.
+// There is a weird bug on mobile, where everything is repeated twice.
+// There is no official solution so far so we have to handle an edge case.
+var mobileRepeatBug = (current == 1 && transcript == event.results[0][0].transcript);
+
+if (!mobileRepeatBug) {
+    noteContent += transcript;
+    noteTextarea.val(noteContent);
+}
+};
+
+recognition.onstart = function() {
+instructions.text('Try speaking into the microphone.');
+}
+
+recognition.onspeechend = function() {
+instructions.text('Search results for : '+noteContent);
+}
+
+recognition.onerror = function(event) {
+if (event.error == 'no-speech') {
+    instructions.text('No speech was detected. Try again.');
+};
+}
+
+
+
+/*-----------------------------
+  App buttons and input
+------------------------------*/
+function timeMng(){
+console.log("Timer starts");
+recognition.stop();
+var input, filter, ul, li, a, i, txtValue;
+// input = document.getElementById("note-textarea");
+input = noteContent;
+
+// filter = input.value.toUpperCase();
+filter = input.toUpperCase();
+// console.log(filter);
+
+ul = document.getElementById("myUL");
+// console.log("ul : "+ul[2]);
+li = ul.getElementsByTagName("li");
+// console.log("li : "+li);
+
+for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        
+        li[i].style.display = "";
+        console.log(li[i].style.display);
+    } else {
+        li[i].style.display = "none";
+    }
+}    
+
+}
+
+
+$('#start-record-btn').on('click', function(e) {
+
+if (noteContent.length) {
+    noteContent += '';
+}
+recognition.start();
+setTimeout(timeMng,5000);  
+
+});
+
+
+$('#pause-record-btn').on('click', function(e) {
+recognition.stop();
+instructions.text('Voice recognition paused.');
+});
+
+// Sync the text inside the text area with the noteContent variable.
+noteTextarea.on('input', function() {
+noteContent = $(this).val();
+})
+
+$('#save-note-btn').on('click', function(e) {
+recognition.stop();
+
+if (!noteContent.length) {
+    instructions.text('Could not save empty note. Please add a message to your note.');
+} else {
+    // Save note to localStorage.
+    // The key is the dateTime with seconds, the value is the content of the note.
+    saveNote(new Date().toLocaleString(), noteContent);
+
+    // Reset variables and update UI.
+    noteContent = '';
+    renderNotes(getAllNotes());
+    noteTextarea.val('');
+    instructions.text('Note saved successfully.');
+}
+
+})
+
+
+notesList.on('click', function(e) {
+e.preventDefault();
+var target = $(e.target);
+
+// Listen to the selected note.
+if (target.hasClass('listen-note')) {
+    var content = target.closest('.note').find('.content').text();
+    readOutLoud(content);
+}
+
+// Delete note.
+if (target.hasClass('delete-note')) {
+    var dateTime = target.siblings('.date').text();
+    deleteNote(dateTime);
+    target.closest('.note').remove();
+}
+});
+
+
+
+/*-----------------------------
+  Speech Synthesis
+------------------------------*/
+
+function readOutLoud(message) {
+var speech = new SpeechSynthesisUtterance();
+
+// Set the text and voice attributes.
+speech.text = message;
+speech.volume = 1;
+speech.rate = 1;
+speech.pitch = 1;
+
+window.speechSynthesis.speak(speech);
+}
+
+
+
+/*-----------------------------
+  Helper Functions
+------------------------------*/
+
+function renderNotes(notes) {
+var html = '';
+if (notes.length) {
+    notes.forEach(function(note) {
+        html += `<li class="note">
+      <p class="header">
+        <span class="date">${note.date}</span>
+        <a href="#" class="listen-note" title="Listen to Note">Listen to Note</a>
+        <a href="#" class="delete-note" title="Delete">Delete</a>
+      </p>
+      <p class="content">${note.content}</p>
+    </li>`;
+    });
+} else {
+    html = '<li><p class="content">You don\'t have any notes yet.</p></li>';
+}
+notesList.html(html);
+}
+
+
+function saveNote(dateTime, content) {
+localStorage.setItem('note-' + dateTime, content);
+}
+
+
+function getAllNotes() {
+var notes = [];
+var key;
+for (var i = 0; i < localStorage.length; i++) {
+    key = localStorage.key(i);
+    console.log(i)
+    console.log(key)
+
+    if (key.substring(0, 5) == 'note-') {
+        notes.push({
+            date: key.replace('note-', ''),
+            content: localStorage.getItem(localStorage.key(i))
+        });
+    }
+}
+console.log(notes)
+return notes;
+}
+
+
+function deleteNote(dateTime) {
+localStorage.removeItem('note-' + dateTime);
+}
+
+function GetSelectedText () {
+if (document.getSelection) {    // all browsers, except IE before version 9
+    var sel = document.getSelection ();
+    var msg = new SpeechSynthesisUtterance();
+msg.text = sel;
+window.speechSynthesis.speak(msg);
+
+} 
+else {
+    if (document.selection) {   // Internet Explorer before version 9
+        var textRange = document.selection.createRange ();
+        alert (textRange.text);
+    }
+}
+}
+function load()
+{
+var l = new SpeechSynthesisUtterance();
+l.text = "WELCOME TO ALL IN ONE EMAIL";
+window.speechSynthesis.speak(l);
+}
+// Login credential management api
+navigator.credentials.get({  
+password: true,
+federated: {
+  providers: [
+    'https://accounts.google.com',  
+    "https://mail.google.com/mail",
+    "https://www.outlook.com/",
+    "https://mail.yahoo.com/",
+    "https://mail.yandex.com/",
+    "https://mail.aol.com/",
+    "https://outlook.office365.com/mail/login.html",
+  ]  
+}  
+}).then(function(cred) {
+// call the appropriate API
+});
+navigator.credentials.get({ password: true }).then(function(credential) {
+if (!credential) {
+  return;
+}
+if (credential.type == "password") {
+  fetch("/", {
+    credentials: credential,
+    method: "POST"
+  }).then(function (response) {
+    // let the user know
+  });
+}
+});
+</script>
+
+
+
+
+
+
+
+    <center>
+
+
+        <div class='box'>
+
+            <div class="add-email-container" id="add-email-container">
+                <h1> Add custom email </h1>
+
+                <p> Name of the email </p>
+                <input type="text" name="email-name" id="email_name" class="email-field">
+
+                <p> URL of the email </p>
+                <input type="text" name="email-url" id="email_url" class="email-field">
+
+                <button class="submit-btn" onclick="submit_form_data()"> submit data </button>
+
+                <button class="close-btn" onclick="close_form()"> close dialog</button>
+            </div>
+
+            <ul id="myUL">
+                <li><a href="https://mail.google.com/mail" target="_self">Gmail</a></li>
+                <li><a href="https://www.outlook.com/" target="_self">Outlook</a></li>
+                <li><a href="https://mail.yahoo.com/" target="_self">Yahoo-Mail</a></li>
+                <li><a href="https://mail.yandex.com/" target="_self">Yandex</a></li>
+
+                <li><a href="https://mail.aol.com/" target="_self">Aol-Mail</a></li>
+
+                <li><a href="https://outlook.office365.com/mail/login.html" target="_self">office365-mail</a></li>
+                <li><a href="https://www.gmx.com/#.1730814-messagebar-login1-1" target="_self">GMX-Mail</a></li>
+                <li><a href="https://www.rediffmailpro.com/cgi-bin/login.cgi" target="_self">Rediff-Mail</a></li>
+                <li><a href="https://secure.hushmail.com/mail/" target="_self">HushMail</a></li>
+                <li><a href="https://www.zoho.com/mail/login.html" target="_self">Zoho</a></li>
+            </ul>
+            <!-- This is the code for add button -->
+            <button class="add-btn" onclick="avail_form()"> <img src="add.png" alt="add button" height="60px"> </button>
+
+            <style>
+                .add-btn {
+                    width: 70px;
+                    height: 70px;
+                    text-align: center;
+                    margin: 20px;
+                    background-color: transparent;
+                    border: none;
+                    border-radius: 100%;
+                    outline: none;
+                    cursor: pointer;
+                    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+                    font-size: 1.2em;
+                    color: #fff;
+                    font-weight: 700;
+                    position: fixed;
+                    bottom: 10vh;
+                    right: 20px;
+                    margin-right: 200px;
+                    margin-bottom: -30px;
+                }
+                
+                .add-email-container {
+                    width: 400px;
+                    height: 300px;
+                    padding: 10px 20px;
+                    margin: 0 auto;
+                    background-color: whitesmoke;
+                    border-radius: 5px;
+                    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+                    position: fixed;
+                    top: calc(50% - 150px);
+                    left: calc(50% - 200px);
+                    z-index: 3;
+                    display: none;
+                    animation: grow 0.5s ease forwards;
+                }
+                
+                @keyframes grow {
+                    from {
+                        transform: scale(0.5, 0.5);
+                    }
+                    to {
+                        transform: scale(1, 1);
+                    }
+                }
+                
+                .add-email-container h1 {
+                    font-size: 1em;
+                    color: dimgrey;
+                    font-weight: 600;
+                    text-align: left;
+                    padding: 5px;
+                    border-bottom: 1px solid #ccc;
+                }
+                
+                .add-email-container p {
+                    margin: 10px 5px 10px 5px;
+                    font-size: 0.8em;
+                    color: black;
+                    font-weight: 700;
+                    text-align: left;
+                    padding: 5px;
+                }
+                
+                .email-field {
+                    width: 350px;
+                    height: 40px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    margin: 0 1px;
+                    font-size: 0.8em;
+                    color: dimgrey;
+                }
+                
+                .submit-btn {
+                    width: 300px;
+                    height: 40px;
+                    text-align: center;
+                    margin: 20px 10px 10px 10px;
+                    border-radius: 5px;
+                    background-color: blue;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    font-size: 1.2em;
+                    color: #fff;
+                    font-weight: 700;
+                }
+                
+                .close-btn {
+                    width: 300px;
+                    height: 40px;
+                    text-align: center;
+                    margin: 0;
+                    border-radius: 5px;
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    font-size: 1em;
+                    color: dimgrey;
+                    font-weight: 400;
+                }
+            </style>
+
+            <script type="text/javascript">
+                function avail_form() {
+
+                    document.getElementById("add-email-container").style.display = "block";
+                }
+
+                function close_form() {
+
+                    document.getElementById("add-email-container").style.display = "none";
+                }
+
+                function submit_form_data() {
+
+                    const name = document.getElementById("email_name").value;
+                    const url = document.getElementById("email_url").value;
+
+                    close_form();
+
+                    const list = document.getElementById("myUL");
+                    list.innerHTML += `<li><a href="${url}"> ${name}</a></li>`;
+
+                    document.getElementById("email_name").value = "";
+                    document.getElementById("email_url").value = "";
+                }
+            </script>
+
+    </center>
+    </div>
+
+</body>
+
+</html>
